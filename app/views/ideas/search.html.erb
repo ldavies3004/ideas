@@ -1,0 +1,5 @@
+<%= form_for Idea.new, url:search_results_ideas_path do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Search" %>
+<% end %>
+

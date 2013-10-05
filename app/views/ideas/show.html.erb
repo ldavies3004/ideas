@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @idea.name %>
+</p>
+
+<p>
+      <strong>Description:</strong>
+      <%= @idea.description %>
+    </p>
+<br>
+    <p>
+      <strong>Picture:</strong>
+      <%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %>
+<br><br>
+    <h3>Comments</h3><br>
+    <% @idea.comments.each do |comment| %>
+      <div>
+        <strong><%= comment.user_name %></strong><br>
+        <br />
+        <p><%= comment.body %></p>
+      </div><br>
+    <% end %>
+    <%= render 'comments/form' %>
+</p>
+
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<%= link_to 'Back', ideas_path %>
